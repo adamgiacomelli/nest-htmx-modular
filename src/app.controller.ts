@@ -1,43 +1,34 @@
 import { Controller, Get, Render } from '@nestjs/common';
 import { AppService } from './app.service';
 
-enum Pages {
-  DASHBOARD,
-  USERS
-}
-
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
   @Render('index')
-  async index(
-  ) {
+  async index() {
     return {
-      current_page: Pages.DASHBOARD
-    } 
+      current_page: "/dashboard",
+    };
   }
 
   @Get('dashboard')
   @Render('dashboard')
-  async dashboard(
-  ) {
-    let user_count = await this.appService.getUserCount()
+  async dashboard() {
+    let user_count = await this.appService.getUserCount();
     return {
-      user_count
-    } 
+      user_count,
+    };
   }
+
 
   @Get('users')
   @Render('users')
-  async users(
-  ) {
-    let users = await this.appService.getUsers()
+  async users() {
+    let users = await this.appService.getUsers();
     return {
-      users
-    } 
+      users,
+    };
   }
 }
-
-

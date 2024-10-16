@@ -9,10 +9,10 @@
   </head>
 
   <body>
-    <%- include('navigation', { current_page }) -%>
+    <%- include('navigation', { current_page: current_page }) -%>
 
     <div
-      hx-get="/<%= current_page %>"
+      hx-get="<%= current_page %>"
       hx-target="#main-content"
       hx-trigger="load"
     />

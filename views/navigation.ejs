@@ -1,13 +1,15 @@
-<h3>Navigation</h3>
-<ul>
-  <li>
-    <button hx-push-url="true" hx-get="/dashboard" hx-target="#main-content">
-      Dashboard
-    </button>
-  </li>
-  <li>
-    <button hx-push-url="true" hx-get="/users" hx-target="#main-content">
-      Users
-    </button>
-  </li>
-</ul>
+<div id="navigation-list" hx-swap-oob="true">
+  <h3>Navigation</h3>
+  <ul>
+    <li>
+      <button hx-push-url="true" hx-get="/dashboard" hx-target="#main-content">
+        <% if (current_page === '/dashboard') { %> [*] <% } %> Dashboard
+      </button>
+    </li>
+    <li>
+      <button hx-push-url="true" hx-get="/users" hx-target="#main-content">
+        <% if (current_page === '/users') { %> [*] <% } %> Users
+      </button>
+    </li>
+  </ul>
+</div>
